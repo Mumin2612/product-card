@@ -1,0 +1,26 @@
+.container {
+  width: 1110px;
+  height: 1190px;
+  margin: 0 auto
+  ;
+}
+
+.title{
+  width: 846px;
+  height: 78px;
+  margin: 0 auto;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  font-size: 70px;
+  line-height: 78px;
+  font-weight: 400;
+  color: #515076;
+}
+
+.card_1{
+  width: 340px;
+  height: 573px;
+  
+}
+
+
