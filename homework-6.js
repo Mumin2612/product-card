@@ -25,12 +25,12 @@ characteristicCar.owner = myProfile;
 console.log(characteristicCar);
 
 // homework-6 задание 5: функция устанавливает "определенное свойство" если его нет. 
-function speedTest(characteristicCar) {
+function establishmenProperty(characteristicCar) {
     if (!("maxSpeed" in characteristicCar)) {
         characteristicCar.maxSpeed = 390;
     }
 }
-speedTest(characteristicCar);
+establishmenProperty(characteristicCar);
 
 // homework-6 задание 6: Функция которая получает объект и аргумент и выводит его значение 
 function showObjectProperty(characteristicCar, brand) {
