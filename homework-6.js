@@ -24,21 +24,19 @@ const characteristicCar = {
 characteristicCar.owner = myProfile;
 console.log(characteristicCar);
 
-// homework-6 задание 5: Функция проверяет есть ли в объекте определенное свойство
+// homework-6 задание 5: функция устанавливает "определенное свойство" если его нет. 
 function speedTest(characteristicCar) {
-    console.log("maxSpeed" in characteristicCar);
     if (!("maxSpeed" in characteristicCar)) {
         characteristicCar.maxSpeed = 390;
     }
 }
 speedTest(characteristicCar);
-console.log(characteristicCar);
 
 // homework-6 задание 6: Функция которая получает объект и аргумент и выводит его значение 
-function printProperty(characteristicCar, brand) {
+function showObjectProperty(characteristicCar, brand) {
     console.log(characteristicCar[brand]);
 };
-printProperty(characteristicCar, "brand");
+showObjectProperty(characteristicCar, "brand");
 
 // homework-6 задание 7: Создание массива который содержит продукты
 const fruitBasket = [
@@ -47,10 +45,9 @@ const fruitBasket = [
     "apple",
     "plum"
 ];
-console.log(fruitBasket);
 
 // homework-6 задание 8: Cоздание массива, состоящий из объектов (книги-развития). 
-const books = [ 
+const literatureBooks = [ 
     {
         title: "Атомные привычки",
         author: "Джеймс Клир",
@@ -75,14 +72,13 @@ const books = [
         genre: "literature"
     }
 ];
-books.push({
+literatureBooks.push({
         title: "НЕ НОЙ",
         author: "Джен Синсеро",
         year: 2019,
         coverColor: "black",
         genre: "literature"
 });
-console.log(books);
 
 // homework-6 задание 9: Cоздание массива, состоящий из объектов (книги-фантастики). 
 const thrillerBooks = [
@@ -111,18 +107,18 @@ const thrillerBooks = [
     },
 ];
 
-const allBooks = [...books, ...thrillerBooks];
-console.log(allBooks);
+const allBooks = [...literatureBooks, ...thrillerBooks];
+
 
 // homework-6 задание 10: Практика с методом массива map. 
-function checkingPublisherBooks(allBooks) {
-    const checkingAllBooksPublisher = allBooks.map(function (book){
+function markRareBooks(books) {
+    const markRareBooks = books.map(function (book){
        return {
         ...book,
         isRare: book.year >= 2015
        };
     });
-     return checkingAllBooksPublisher;
+     return markRareBooks;
 };
-const updateBooks= checkingPublisherBooks(allBooks);
+const updateBooks= markRareBooks(allBooks);
 console.log(updateBooks);
