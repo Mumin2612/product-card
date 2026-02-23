@@ -22,19 +22,18 @@ const characteristicCar = {
     gearbox: "automatic"
 };
 characteristicCar.owner = myProfile;
-console.log(characteristicCar);
 
 // homework-6 задание 5: функция устанавливает "определенное свойство" если его нет. 
-function establishmenProperty(characteristicCar) {
+function setMaxSpeedIfMissing(characteristicCar) {
     if (!("maxSpeed" in characteristicCar)) {
         characteristicCar.maxSpeed = 390;
     }
 }
-establishmenProperty(characteristicCar);
+setMaxSpeedIfMissing(characteristicCar);
 
 // homework-6 задание 6: Функция которая получает объект и аргумент и выводит его значение 
-function showObjectProperty(characteristicCar, brand) {
-    console.log(characteristicCar[brand]);
+function showObjectProperty(characteristicCar, field) {
+    console.log(characteristicCar[field]);
 };
 showObjectProperty(characteristicCar, "brand");
 
@@ -55,7 +54,6 @@ const literatureBooks = [
         coverColor: "white",
         genre: "literature"
     },
-
     {
         title: "Самый богатый человек в Вавилоне",
         author: "Джордж Самюэль Клейсон",
@@ -63,7 +61,6 @@ const literatureBooks = [
         coverColor: "red",
         genre: "literature"
     },
-
     {
         title: "НЕ ТУПИ",
         author: "Джен Синсеро",
@@ -89,7 +86,6 @@ const thrillerBooks = [
         coverColor: "hardcover",
         genre: "novel" 
     },
-
     {
         title: "Внутри убийцы",
         author: "Майка Омер",
@@ -97,7 +93,6 @@ const thrillerBooks = [
         coverColor: "hardcover",
         genre: "novel" 
     },
-
     {
         title: "Брокер ",
         author: "Джона Гришэм",
@@ -109,16 +104,14 @@ const thrillerBooks = [
 
 const allBooks = [...literatureBooks, ...thrillerBooks];
 
-
 // homework-6 задание 10: Практика с методом массива map. 
 function markRareBooks(books) {
-    const markRareBooks = books.map(function (book){
+    const updatedBooks = books.map(function (book) {
        return {
         ...book,
         isRare: book.year >= 2015
        };
     });
-     return markRareBooks;
+     return updateBooks;
 };
-const updateBooks= markRareBooks(allBooks);
-console.log(updateBooks);
+const updateBooks = markRareBooks(allBooks);
