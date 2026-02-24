@@ -32,8 +32,8 @@ function setMaxSpeedIfMissing(characteristicCar) {
 setMaxSpeedIfMissing(characteristicCar);
 
 // homework-6 задание 6: Функция которая получает объект и аргумент и выводит его значение 
-function showObjectProperty(characteristicCar, field) {
-    console.log(characteristicCar[field]);
+function showObjectProperty(obj, field) {
+    console.log(obj[field]);
 };
 showObjectProperty(characteristicCar, "brand");
 
@@ -107,11 +107,11 @@ const allBooks = [...literatureBooks, ...thrillerBooks];
 // homework-6 задание 10: Практика с методом массива map. 
 function markRareBooks(books) {
     const updatedBooks = books.map(function (book) {
-       return {
-        ...book,
-        isRare: book.year >= 2015
-       };
+        return {
+            ...book,
+            isRare: book.year >= 2015
+        };
     });
-     return updateBooks;
+    return updateBooks;
 };
 const updateBooks = markRareBooks(allBooks);
