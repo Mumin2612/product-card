@@ -1,3 +1,4 @@
+import { commentsList } from "./comments.js"; //homework-7 №5 импорт массива комментариев
 // homework-7 №1 создан новый файл js добавлен в html
 
 //homework-7 №2 создание массива сичел от 1 до 10 которая фильтрирует числа и начинается с 5. 
@@ -10,36 +11,29 @@ console.log(fruits.includes("Grape"));
 
 //homework-7 №4 функция переворота массива
 function reverseArray(array) {
-    return array.slice().reverse()
-};
+    return array.slice().reverse();
+}
 const reversedNumbers = reverseArray(numbers);
 const reversedFruits = reverseArray(fruits);
 
-
-//homework-7 №5 импорт массива комментариев
 // №6 работа с ES modules
 // №7 фильтрация email содержащих ".com"
-import { commentsList } from "./comments.js";
-const commentsWithComEmails = commentsList.filter((item) => {
-    return item.email.includes(".com");
-});
+const commentsWithComEmails = commentsList.filter((item) => (
+     item.email.includes(".com")
+));
 console.log(commentsWithComEmails);
 
 //homework-7 №8 изменение postId в зависимости от id
-const updatedComments = commentsList.map((item) =>{
-   const newPostId = item.id <= 5 ? 2 : 1;
-    
-   return {
+const updatedComments = commentsList.map((item) => ({
     ...item,
-    postId: newPostId
-   };
-});
+    postId: item.id <= 5 ? 2 : 1
+}));
 
 //homework-7 №9 создание массива объектов только с id и name
-const commentsPreview = commentsList.map((item => ({
+const commentsPreview = commentsList.map((item) => ({
     id: item.id,
     name: item.name
-})));
+}));
 
 //homework-7 №10 добавление свойства isInvalid в зависимости от длины body
 const commentsValidated = commentsList.map((item) => ({
@@ -57,9 +51,9 @@ const emailsWithReduce = commentsList.reduce((arrayEmail, item) =>  {
 
 //homework-7 №11/2 получение массива email через map
 const emailsWithMap = commentsList.map((item) => {
-    return item.email;
+    item.email;
 });
 
 //homework-7 №12 преобразование массива email в строку
 const emailsString = emailsWithReduce.toString();
-const emailsStingJoin = emailsWithMap.join(" | ");
+const emailsStringJoin = emailsWithMap.join(" | ");
