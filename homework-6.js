@@ -112,6 +112,6 @@ function markRareBooks(books) {
             isRare: book.year >= 2015
         };
     });
-    return updateBooks;
+    return updatedBooks;
 };
 const updateBooks = markRareBooks(allBooks);
