@@ -105,7 +105,7 @@ const thrillerBooks = [
 const allBooks = [...literatureBooks, ...thrillerBooks];
 
 // homework-6 задание 10: Практика с методом массива map. 
-function markRareBooks(books) {
+function getBooksWithRareMark(books) {
     const updatedBooks = books.map(function (book) {
         return {
             ...book,
@@ -114,4 +114,4 @@ function markRareBooks(books) {
     });
     return updatedBooks;
 };
-const updateBooks = markRareBooks(allBooks);
+const updateBooks = getBooksWithRareMark(allBooks);

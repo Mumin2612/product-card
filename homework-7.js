@@ -18,9 +18,9 @@ const reversedFruits = reverseArray(fruits);
 
 // №6 работа с ES modules
 // №7 фильтрация email содержащих ".com"
-const commentsWithComEmails = commentsList.filter((item) => (
-     item.email.includes(".com")
-));
+const commentsWithComEmails = commentsList.filter(item => 
+    item.email.includes(".com")
+);
 console.log(commentsWithComEmails);
 
 //homework-7 №8 изменение postId в зависимости от id
@@ -47,7 +47,7 @@ const emailsWithReduce = commentsList.reduce((arrayEmail, item) =>  {
         ...arrayEmail,
         item.email
     ];  
-},[]);
+}, []);
 
 //homework-7 №11/2 получение массива email через map
 const emailsWithMap = commentsList.map((item) => {
