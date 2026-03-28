@@ -1,7 +1,5 @@
 // Получаем элементы управления из DOM
 const cardRecolorButton = document.querySelector(".product-section__action-all"); 
-const catalogCard = document.querySelectorAll(".product-card__inner");
-const cardActionButtons = document.querySelectorAll(".product-card__action");
 const resetColorCard = document.querySelector('.product-section__reset');
 
 // Генерирует случайный цвет для фона карточек
@@ -24,34 +22,24 @@ function changeRandomColor() {
 
 // Сбрасывает фон всех карточек к состоянию по умолчанию
 resetColorCard.addEventListener("click", () => {
-    catalogCard.forEach(body => {
+    const currentCards = document.querySelectorAll(".product-card__inner");
+    currentCards.forEach(body => {
         body.style.backgroundColor = "";
     });
 });
 
 //  Перекрашивает все карточки в случайный цвет
-const catalogCards = document.querySelectorAll(".product-card__inner");
 const sectionActionButton = document.querySelector(".product-section__action-all"); 
 
 sectionActionButton.addEventListener("click", () => {
-    catalogCards.forEach(body => {
-        body.style.backgroundColor = changeRandomColor();
-    });
-});
-
-// Обрабатывает кнопки внутри карточек и меняет цвет только своей карточки
-cardActionButtons.forEach(button => {
-    button.addEventListener("click", () => {
-        const parentBox = button.closest(".product-card__content");
-        const body = parentBox.querySelector(".product-card__inner");
-
+    const allCards = document.querySelectorAll(".product-card__inner");
+    allCards.forEach(body => {
         body.style.backgroundColor = changeRandomColor();
     });
 });
 
 // Выводит текст заголовка страницы в консоль при наведении
 const headerOutput = document.querySelector(".js-title");
-
 headerOutput.addEventListener("mouseover", () => {
     console.log(headerOutput.innerText);
 });
@@ -65,6 +53,6 @@ toggleButton.addEventListener("click", () => {
     if (toggleButton.classList.contains("is-active")) {
         toggleButton.innerText = "НЕ АКТИВНО";
     } else {
-        toggleButton.innerText = "АКТИВНО"
+        toggleButton.innerText = "АКТИВНО";
     };
 });
