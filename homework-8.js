@@ -1,12 +1,6 @@
-import { cardsList } from "./data.js";
+import { products } from "./products-data.js";
 const cardTemplate = document.querySelector("#card-template");
-const cardList = document.querySelector(".product-cards");
-let countValue = prompt("Сколько карточек отобразить? От 1 до 5");
-let count = Number(countValue);
-if (count < 1 || count > 5 || isNaN(count)) {
-    alert("Ошибка! Введите число от 1 до 5.");
-    count = cardsList.length;
-};
+const cardList = document.querySelector(".product-container");
 
 function changeRandomColor() {
     const colors = [
@@ -25,10 +19,11 @@ function changeRandomColor() {
     return colors[randomIndex];
 };
 
-cardsList.slice(0, count).forEach(card => {
+function renderCards(products) {
+    products.forEach(card => {
     const cardClone = cardTemplate.content.cloneNode(true);
     const compositionList = cardClone.querySelector(".product-card__composition-list");
-    cardClone.querySelector(".product-card__image").src = card.img;
+    cardClone.querySelector(".product-card__image").src = "images/" + card.img + ".jpg";
     cardClone.querySelector(".product-card__subtitle").textContent = card.subtitle;
     cardClone.querySelector(".product-card__title").textContent = card.title;
     cardClone.querySelector(".product-card__description").textContent = card.description;
@@ -38,16 +33,29 @@ cardsList.slice(0, count).forEach(card => {
         li.classList.add("product-card__item");
         compositionList.append(li);
     });
-    cardClone.querySelector(".product-card__price").textContent = card.price + " ₽";
+    cardClone.querySelector(".product-card__price-text").textContent = "Цена";
+    cardClone.querySelector(".product-card__price-value").textContent = card.price + " ₽";
     const btn = cardClone.querySelector('.product-card__action');
     btn.addEventListener('click', () => { 
         const cardBody = btn.closest('.product-card__content').querySelector('.product-card__inner');
         cardBody.style.backgroundColor = changeRandomColor();
-    })
+    });
     cardList.appendChild(cardClone);
 });
+};
 
-const productDescription = cardsList.reduce((acc, current) => {
-    acc[current.title] = current.description;
+function init() {
+    let countValue = prompt("Сколько карточек отобразить? От 1 до 5");
+    let count = Number(countValue);
+    if (count < 1 || count > 5 || isNaN(count)) {
+    alert("Ошибка! Введите число от 1 до 5.");
+    count = 5;
+    };
+    renderCards(products.slice(0, count));
+};
+init();
+
+const productDescription = products.reduce((acc, current) => {
+    acc.push({[current.title]: current.description});
     return acc;
-},{});
+},[]);

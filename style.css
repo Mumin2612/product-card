@@ -18,14 +18,21 @@
 
 .title {
   width: 846px;
+  margin: 0 auto;
   margin-bottom: 110px;
   font-size: 70px;
   font-weight: 400;
   line-height: 78px;
   color: #515076;
 }
-
 .product-cards {
+  width: 1110px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.product-container {
   width: 1110px;
   margin: 0 auto;
   display: flex;
