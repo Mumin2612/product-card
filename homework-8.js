@@ -1,4 +1,5 @@
 import { products } from "./products-data.js";
+
 const cardTemplate = document.querySelector("#card-template");
 const cardList = document.querySelector(".product-container");
 
@@ -48,8 +49,8 @@ function init() {
     let countValue = prompt("Сколько карточек отобразить? От 1 до 5");
     let count = Number(countValue);
     if (count < 1 || count > 5 || isNaN(count)) {
-    alert("Ошибка! Введите число от 1 до 5.");
-    count = 5;
+        alert("Ошибка! Введите число от 1 до 5.");
+        count = 5;
     };
     renderCards(products.slice(0, count));
 };
@@ -58,4 +59,4 @@ init();
 const productDescription = products.reduce((acc, current) => {
     acc.push({[current.title]: current.description});
     return acc;
-},[]);
+}, []);
