@@ -44,11 +44,73 @@
     </template>  
   </section>
 
+  <footer class="footer">
+    <button class="footer__register-btn" type="button">Зарегистрироваться</button>
+    <div class="footer__container">
+      <div class="footer__about">
+        <h2 class="footer__title">Product Cards</h2>  
+        <p class="footer__text">У Нас Самые Лучшие Продукты Для Кожи!</p>
+        <div class="footer__socials, footer__social-icon">
+          <img class="footer__socials-icon-tg" src="/images/icons-tg.png" alt="Иконка телеграмм">
+          <img class="footer__socials-icon-vk" src="/images/icons-wk.png" alt="Иконка WK">
+        </div>
+      </div>
+      <div class="footer__subscribe">
+        <p class="footer__subscribe-title">Подпишись на наши акции:</p>
+        <form class="subscribe-form" action="">
+          <input class="footer__input" type="email" placeholder="Введи Email..." required>
+          <button class="footer__submit-btn" type="submit">Подписаться</button>
+        </form>
+      </div>
+      <div class="footer__nav">
+        <div class="footer__menu">
+          <h3 class="footer__menu-title">Быстрые ссылки</h3>
+          <nav>
+            <ul>
+              <li><a href="">Главная</a></li>
+              <li><a href="">Магазин</a></li>
+              <li><a href="">Контакты</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <hr class="footer__divider">
+    <p class="footer__copyright">www.product-cards.com©all right reserve</p>
+  </footer>
+
+  <div class="modal">
+    <button class="modal__close-btn">&times;</button>
+    <div class="modal__content">
+      <h2 class="modal__title">Регистрация</h2>      
+      <form action="" class="modal__form" id="registrationForm">
+        <label class="modal__label" for="user-name">Имя</label>
+        <input class="modal__input" id="user-name" type="text" name="name" placeholder="Введите Имя" required>
+        <label class="modal__label" for="user-surname">Фамилия</label>
+        <input class="modal__input" id="user-surname" type="text" name="surname" placeholder="Введите Фамилию" required>
+        <label class="modal__label" for="user-birth">Дата рождения</label>
+        <input class="modal__input" id="user-birth"  type="date" name="birthday" placeholder="Введите дату рождения" required>
+        <label class="modal__label" for="user-login">Логин</label>
+        <input class="modal__input" id="user-login" type="text" name="login" placeholder="Введите Логин" required>
+        <label class="modal__label" for="user-password">Пароль</label>
+        <input class="modal__input" id="user-password" type="password" name="password" placeholder="Введите Пароль" required>
+        <label class="modal__label" for="confirm-password">Повтор пароля</label>
+        <input class="modal__input" id="user-password-confirm" type="password" name="confirmPassword" placeholder="Повторите пароль" required>
+        <p class="modal__error" id="error-message"></p>
+        <button class="modal__submit-btn" type="submit">Зарегистрироваться</button>
+      </form>    
+    </div>
+  </div>
+  
+
   <script src="main.js"></script>
   <script src="homework-5.js"></script>
   <script src="homework-6.js"></script>
   <script type="module" src="homework-7.js"></script>
   <script type="module" src="comments.js"></script>
   <script type="module" src="homework-8.js"></script>
+  <script type="module" src="homework-9.js"></script>
+
+
 </body>
 </html>
