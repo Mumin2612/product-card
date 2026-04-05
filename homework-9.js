@@ -11,6 +11,7 @@ const userOfBirth = document.querySelector("#user-birth");
 const userLogin = document.querySelector("#user-login");
 const subscribeForm = document.querySelector(".subscribe-form");
 const emailInput = document.querySelector(".footer__input");
+let user = {}
 
 subscribeForm.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -52,7 +53,7 @@ btnForRegister.addEventListener("submit", (event) => {
       errorMessage.style.display = "none";
       openWindow.classList.remove("modal-showed");
 
-      const userForm = {
+      user = {
         name: userName.value,
         surname: userSurname.value,
         birthday: userOfBirth.value,
@@ -60,7 +61,7 @@ btnForRegister.addEventListener("submit", (event) => {
         password: passs1.value,
         createdOn: new Date()
       }
-      console.log(userForm);
+      console.log(user);
     };
   };
 });
