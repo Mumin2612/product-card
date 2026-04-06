@@ -252,7 +252,7 @@
 .footer__title {
   font-size: 28px;
   font-weight: 800;
-  line-height: 1.6px;
+  line-height: 1.6;
   color: rgba(255, 255, 255, 1);
   margin-bottom: 41px;
 }
