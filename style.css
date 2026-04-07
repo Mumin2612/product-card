@@ -190,3 +190,252 @@
   background-color: red;
   color: #ffffff;
 }
+
+/* ДЗ №9 */
+
+.footer {
+  width: 100%;
+  background-color: rgba(58, 58, 58, 1);
+}
+
+.footer__container {
+  max-width: 1512px;
+  margin: 0 auto;
+  padding: 105px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items:flex-start;
+}
+
+.footer__about {
+  flex: 1;
+}
+
+.footer__subscribe {
+  flex: 1;
+  text-align: center;
+  padding-top: 5px;
+  margin-top: -23px;
+  margin-left: 44px;
+}
+
+.footer__nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.footer__nav ul {
+  width: fit-content;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: rgba(255, 255, 255, 1);
+}
+
+.footer__nav li {
+  margin-bottom: 17px;
+}
+
+.footer__nav a {
+  text-decoration: none;
+  color: #ffffff;        
+  transition: 0.3s;     
+}
+
+.footer__nav a:hover {
+  opacity: 0.7;         
+}
+
+.footer__title {
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 1);
+  margin-bottom: 41px;
+}
+
+.footer__text {
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: -0.1;
+  color: rgba(255, 255, 255, 1);
+  margin-bottom: 43px;
+}
+
+.footer__subscribe-title {
+  font-size: 23px;
+  font-weight: 400;
+  margin-left: 57px;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 1);
+  margin-bottom: 17px;
+}
+
+.subscribe-form {
+  display: flex;             
+  background-color: #fff;    
+  border-radius: 8px;       
+  overflow: hidden;          
+  max-width: 450px;         
+  margin: 0 auto;            
+}
+
+.footer__input {
+  flex: 1;              
+  border: none;            
+  outline: none;             
+  padding: 20px 20px;        
+  font-size: 16px;
+  background: transparent;   
+}
+
+.footer__submit-btn {
+  border: none;
+  background: transparent;
+  color: rgba(44, 43, 43, 0.6);
+  padding: 0px 5px;
+  font-weight: 600;
+  cursor: pointer;
+  border-left: 1px solid #ccc;
+  transition: opacity 0.2s;
+  font-size: 18px;
+}
+
+.footer__submit-btn:hover {
+  opacity: 0.7;
+}
+
+.footer__menu-title {
+  width: fit-content;
+  margin-bottom: 23px;
+  font-size: 20px;
+  line-height: 1.2;
+  color: rgba(255, 255, 255, 1);
+}
+
+.footer__menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  width: fit-content;     
+}
+
+.footer__socials-icon {
+  display: flex;
+  gap: 31px;
+}
+
+.footer__divider {
+  border: none;
+  border-top: 2px solid rgba(255, 255, 255, 0.2); 
+  max-width: 66px;
+  margin: 40px auto 20px;
+}
+
+.footer__copyright {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 18px;
+  font-weight: 400;
+  padding-bottom: 41px;
+  margin-top: 30px;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: left;
+}
+
+.modal {
+  width: 100%;
+  padding: 20px 0;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  backdrop-filter: blur(5px);
+  background-color: rgb(14 14 14 / 60%);
+  display: none;
+}
+
+.modal__content {
+  width: 400px;
+  max-height: 90vh;
+  padding: 30px;
+  position: relative;
+  overflow-y: auto;
+  background-color: #ccc;
+  border-radius: 10px ;
+}
+
+.modal__title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.modal__input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.modal__label { 
+  display: block; 
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.modal__submit-btn {
+  margin-top: 15px;
+  padding: 12px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.modal__form button:hover {
+  background-color: #555; 
+}
+
+.modal__close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal__close-btn:hover {
+  background-color: rgb(244, 1, 1);
+  color: white;
+  border-radius: 40px;
+}
+
+.footer__register-btn {
+  padding: 5px;
+  background-color: tan;
+  color: #121212;
+  font-size: 17px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 3px;
+}
+
+.modal-showed {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
