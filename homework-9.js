@@ -1,7 +1,7 @@
 import Form from './form.js';
+import { modalRegistration } from './main.js';
 const registrationForm = new Form("#registrationForm");
 
-const openWindow = document.querySelector(".modal");
 const btnForRegister = document.querySelector("#registrationForm");
 const passs1 = document.querySelector("#user-password");
 const passs2 = document.querySelector("#user-password-confirm");
@@ -38,10 +38,11 @@ btnForRegister.addEventListener("submit", (event) => {
     }
     else {
       errorMessage.style.display = "none";
-      openWindow.classList.remove("modal-showed");
       
       const userData = registrationForm.getValues();
       console.log(userData);
+      modalRegistration.close();
+      registrationForm.clear();
     };
   };
 });

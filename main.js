@@ -11,7 +11,7 @@ import Form from './form.js';
 // Получаем элементы управления из DOM
 const cardRecolorButton = document.querySelector(".product-section__action-all"); 
 const resetColorCard = document.querySelector('.product-section__reset');
-const modalRegistration = new Modal("#modalRegistration")
+export const modalRegistration = new Modal("#modalRegistration")
 const openBtn = document.querySelector(".footer__register-btn")
 
 openBtn.addEventListener("click", () => {
