@@ -1,21 +1,19 @@
 export default class Modal {
     constructor(id) {
-        this.id = id
-        this.modalElement = document.querySelector(id)
-
-        const closeBtn = this.modalElement.querySelector(".modal__close-btn")
-        closeBtn.addEventListener("click", () => this.close())
+        this.modalElement = document.querySelector(id);
     }
 
     open(){
-        this.modalElement.classList.add("modal-showed")
+        const closeBtn = this.modalElement.querySelector(".modal__close-btn");
+        closeBtn.addEventListener("click", () => this.close());
+        this.modalElement.classList.add("modal-showed");
     }
 
     close(){
-        this.modalElement.classList.remove("modal-showed")
+        this.modalElement.classList.remove("modal-showed");
     }
 
     isActive() {
-        return this.modalElement.classList.contains("modal-showed")
+        return this.modalElement.classList.contains("modal-showed");
     }
-}
+};

@@ -1,6 +1,4 @@
-import Form from './form.js';
-import { modalRegistration } from './main.js';
-const registrationForm = new Form("#registrationForm");
+import { modalRegistration, registrationForm } from './main.js';
 
 const btnForRegister = document.querySelector("#registrationForm");
 const passs1 = document.querySelector("#user-password");
