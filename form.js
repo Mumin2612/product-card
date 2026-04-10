@@ -1,6 +1,5 @@
-export default class Form {
+export class Form {
      constructor(id) {
-        this.id = id;
         this.formElement = document.querySelector(id);
     }
 

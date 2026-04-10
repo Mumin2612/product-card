@@ -1,4 +1,4 @@
-export default class Modal {
+export class Modal {
     constructor(id) {
         this.modalElement = document.querySelector(id);
     }
