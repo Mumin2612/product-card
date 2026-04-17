@@ -1,6 +1,23 @@
+import './homework-5.js';
+import './comments.js'
+import './homework-7.js';
+import './homework-8.js';
+import './products-data.js'
+import './homework-9.js';
+import './homework-10.js';
+import { Modal } from './Modal.js';
+import { Form } from './Form.js';
+
 // Получаем элементы управления из DOM
-const cardRecolorButton = document.querySelector(".product-section__action-all"); 
+const cardRecolorButton = document.querySelector(".product-section__action-all");
 const resetColorCard = document.querySelector('.product-section__reset');
+export const modalRegistration = new Modal("#modalRegistration")
+const openBtn = document.querySelector(".footer__register-btn")
+export const registrationForm = new Form("#registrationForm");
+
+openBtn.addEventListener("click", () => {
+    modalRegistration.open();
+})
 
 // Генерирует случайный цвет для фона карточек
 function changeRandomColor() {
@@ -28,10 +45,7 @@ resetColorCard.addEventListener("click", () => {
     });
 });
 
-//  Перекрашивает все карточки в случайный цвет
-const sectionActionButton = document.querySelector(".product-section__action-all"); 
-
-sectionActionButton.addEventListener("click", () => {
+cardRecolorButton.addEventListener("click", () => {
     const allCards = document.querySelectorAll(".product-card__inner");
     allCards.forEach(body => {
         body.style.backgroundColor = changeRandomColor();

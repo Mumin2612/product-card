@@ -1,21 +1,14 @@
-const buttonRegister = document.querySelector(".footer__register-btn");
-const openWindow = document.querySelector(".modal");
-const closeWindow = document.querySelector(".modal__close-btn");
+import { modalRegistration, registrationForm } from './main.js';
+
 const btnForRegister = document.querySelector("#registrationForm");
 const passs1 = document.querySelector("#user-password");
 const passs2 = document.querySelector("#user-password-confirm");
 const errorMessage = document.querySelector("#error-message");
-const userName = document.querySelector("#user-name");
-const userSurname = document.querySelector("#user-surname");
-const userOfBirth = document.querySelector("#user-birth");
-const userLogin = document.querySelector("#user-login");
 const subscribeForm = document.querySelector(".subscribe-form");
 const emailInput = document.querySelector(".footer__input");
-let user = {}
 
 subscribeForm.addEventListener("submit", (event) => {
   event.preventDefault();
-
   if (subscribeForm.checkValidity()) {
     const subscribeData = {
       email: emailInput.value
@@ -26,18 +19,10 @@ subscribeForm.addEventListener("submit", (event) => {
   }
 });
 
-buttonRegister.addEventListener("click", () => {
-  openWindow.classList.add("modal-showed");
-});
-
-closeWindow.addEventListener("click", () => {
-  openWindow.classList.remove("modal-showed");
-});
-
 btnForRegister.addEventListener("submit", (event) => {
   const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/;
   event.preventDefault();
-  if (!btnForRegister.checkValidity()) {
+  if (!registrationForm.isValid()) {
     console.log("Форма пустая");
     return;
   } else {
@@ -51,17 +36,11 @@ btnForRegister.addEventListener("submit", (event) => {
     }
     else {
       errorMessage.style.display = "none";
-      openWindow.classList.remove("modal-showed");
-
-      user = {
-        name: userName.value,
-        surname: userSurname.value,
-        birthday: userOfBirth.value,
-        login: userLogin.value,
-        password: passs1.value,
-        createdOn: new Date()
-      }
-      console.log(user);
+      
+      const userData = registrationForm.getValues();
+      console.log(userData);
+      modalRegistration.close();
+      registrationForm.clear();
     };
   };
 });
