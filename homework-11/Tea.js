@@ -10,4 +10,9 @@ export class Tea extends Drink {
     const teaInfo = super.getInfoDrink();
     return (`Инфо: ${teaInfo}, Цвет: ${this.color}`);
   }
+
+  serverDrink() {
+    super.serverDrink()
+    this.setTemperatureDrink(90)
+  }
 };

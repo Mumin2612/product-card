@@ -10,4 +10,9 @@ export class Lemonade extends Drink {
     const lemonadeInfo = super.getInfoDrink();
     return (`Инфо: ${lemonadeInfo}, Газированный: ${this.isSparkling}`);
   }
+
+  serverDrink() {
+    super.serverDrink()
+    this.setTemperatureDrink(5)
+  }
 };

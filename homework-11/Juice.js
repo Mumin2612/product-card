@@ -10,4 +10,9 @@ export class Juice extends Drink {
     const fruitsInfo = super.getInfoDrink();
     return (`Инфо: ${fruitsInfo}, Фрукт: ${this.fruitType}`);
   }
+
+  serverDrink() {
+    super.serverDrink()
+    this.setTemperatureDrink(10)
+  }
 };

@@ -10,6 +10,11 @@ export class Coffee extends Drink {
     const baseInfo = super.getInfoDrink();
     return (`Инфо: ${baseInfo}, Зерна: ${this.typeGrain}`);
   }
+
+  serverDrink() {
+    super.serverDrink()
+    this.setTemperatureDrink(90)
+  }
 };
 
 

@@ -30,6 +30,7 @@ export class Drink {
 
     serverDrink () {
         this.#prepareDrink() 
-        console.log(`Напиток ${this.name} подан! Температура: ${this.#temperature}`);
+        this.setTemperatureDrink(85)
+        console.log(`Напиток ${this.name} подан! Температура: ${this.getTemperatureDrink}`);
     }
 };
