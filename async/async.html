@@ -7,12 +7,29 @@
     <title>Document</title>
   </head>
   <body>
+    <template id="card-template">
+
+      <div class="card">
+        <p>Номер:<span class="js-id"></span></p>
+        <p>Имя:<span class="js-name"></span></p>
+        <p>Фамилия:<span class="js-surname"></span></p>
+        <p>Возраст:<span class="js-age"></span></p>
+        <p>gmail:<span class="js-gmail"></span></p>
+        <p>Страна:<span class="js-country"></span></p>
+        <p>Город:<span class="js-city"></span></p>
+        <p>Улица:<span class="js-street"></span></p>
+        <p>Админ:<span class="js-isAdmin"></span></p>
+
+        <button class="js-delete-btn">Удалить карточку</button>
+      </div>
+    </template>
+
     <div class="controls">
       <button id="deleteAll">Удалить все</button>
       <button id="restoreAll">восстановить все</button>
     </div>
-    <div id="container" class="container"></div>
 
+    <div id="container" class="container"></div>
     <h1 id="loading">Данные загружаются...</h1>
 
     <script src="async.js"></script>

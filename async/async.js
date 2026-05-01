@@ -1,6 +1,7 @@
 console.log("Это точка входа в асинхронный код");
 
-const userData = localStorage.getItem("userData");
+const getLocalData = () => JSON.parse(localStorage.getItem("userData"));
+const cardTemplate = document.getElementById("card-template");
 const loading = document.getElementById("loading");
 const container = document.getElementById("container");
 const deleteAllCardsBtn = document.getElementById("deleteAll");
@@ -50,7 +51,7 @@ restoreAllCardsBtn.addEventListener("click", () => {
 });
 
 container.addEventListener("click", (event) => {
-  if (event.target.tagName === "BUTTON") {
+  if (event.target.classList.contains("js-delete-btn")) {
     const cardId = event.target.dataset.id;
     const cardElement = event.target.closest(".card");
     cardElement.classList.add("removing");
@@ -64,30 +65,31 @@ container.addEventListener("click", (event) => {
 });
 
 const renderCards = (cards) => {
-  let html = "";
   loading.textContent = "";
+  container.innerHTML = "";
   cards.forEach((element) => {
-    html += `<div class="card">
-      <p>Номер: <span>${element.id}</span></p>
-      <p>Имя: <span>${element.name}</span></p>
-      <p>Фамилия: <span>${element.surname}</span></p>
-      <p>Возраст: <span>${element.age}</span></p>
-      <p>gmail: <span>${element.email}</span></p>
-      <p>Страна: <span>${element.country}</span></p>
-      <p>Город: <span>${element.city}</span></p>
-      <p>Улица: <span>${element.street}</span></p>
-      <p>Админ: <span>${element.isAdmin}</span></p>
-      <button data-id="${element.id}">Удалить карточку</button>
-    </div>
-    `;
+    const cardClone = cardTemplate.content.cloneNode(true);
+    cardClone.querySelector(".js-id").textContent = element.id;
+    cardClone.querySelector(".js-name").textContent = element.name;
+    cardClone.querySelector(".js-surname").textContent = element.surname;
+    cardClone.querySelector(".js-age").textContent = element.age;
+    cardClone.querySelector(".js-gmail").textContent = element.gmail;
+    cardClone.querySelector(".js-country").textContent = element.country;
+    cardClone.querySelector(".js-city").textContent = element.city;
+    cardClone.querySelector(".js-street").textContent = element.street;
+    cardClone.querySelector(".js-isAdmin").textContent = element.isAdmin;
+    cardClone.querySelector(".js-delete-btn").dataset.id = element.id;
+    container.appendChild(cardClone);
   });
-  container.innerHTML = html;
 };
 
-if (userData === null) {
-  fetchUserData();
-} else {
-  const parsedData = JSON.parse(userData);
-  currentData = parsedData;
-  renderCards(parsedData);
+function initApp() {
+  const saveData = getLocalData()
+  if (saveData !== null) {
+    currentData = saveData;
+    renderCards(saveData);
+  } else {
+    fetchUserData(); 
+  }
 }
+window.addEventListener("load", initApp)
