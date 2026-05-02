@@ -9,10 +9,14 @@ const restoreAllCardsBtn = document.getElementById("restoreAll");
 let currentData = [];
 
 async function fetchUserData() {
-  loading.innerHTML =
-    '<span class="loader"></span><p>Восcтовление данных...</p>';
-  await new Promise((resolve) => setTimeout(resolve, 2000));
+  const loading = document.getElementById("loading");
+  const loadingText = loading.querySelector("#loading-text");
+
+  loading.classList.remove("hidden");
+  loading.querySelector(".loader").style.display = "inline-block";
+  loadingText.textContent = "Восстановление данных...";
   try {
+    await new Promise((resolve) => setTimeout(resolve, 2000));
     const response = await fetch("users.json");
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -20,21 +24,22 @@ async function fetchUserData() {
 
     const userData = await response.json();
     if (currentData.length === userData.length && currentData.length !== 0) {
-      loading.innerHTML = "";
       setTimeout(() => {
         alert("Все данные уже отображены");
       }, 10);
 
       return;
     }
-
     currentData = userData;
     renderCards(userData);
     localStorage.setItem("userData", JSON.stringify(userData));
     console.log("Данные пользователей:", userData);
   } catch (error) {
     console.error("Ошибка при загрузке данных пользователей:", error);
-    loading.textContent = "Произошла ошибка при загрузке данных";
+    loading.querySelector("#loading-text").textContent = "Произошла ошибка при загрузке данных";
+  } finally {
+    const loading = document.getElementById("loading");
+    loading.classList.add("hidden");
   }
 }
 
@@ -42,8 +47,13 @@ deleteAllCardsBtn.addEventListener("click", () => {
   localStorage.clear();
   container.innerHTML = "";
   currentData = [];
-  loading.textContent =
-    "Данные очищены. Нажмите 'Восстановить', чтобы загрузить их заново";
+  
+  const loadingText = document.getElementById("loading-text");
+  if (loadingText) {
+    loadingText.textContent = "Данные очищены. Нажмите 'Восстановить', чтобы загрузить их заново";
+  }
+  loading.classList.remove("hidden");
+  loading.querySelector(".loader").style.display = "none";
 });
 
 restoreAllCardsBtn.addEventListener("click", () => {
@@ -65,7 +75,7 @@ container.addEventListener("click", (event) => {
 });
 
 const renderCards = (cards) => {
-  loading.textContent = "";
+  loading.querySelector("#loading-text").textContent = "";
   container.innerHTML = "";
   cards.forEach((element) => {
     const cardClone = cardTemplate.content.cloneNode(true);
