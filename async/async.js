@@ -1,12 +1,16 @@
 console.log("Это точка входа в асинхронный код");
 
-const getLocalData = () => JSON.parse(localStorage.getItem("userData"));
 const cardTemplate = document.getElementById("card-template");
 const loading = document.getElementById("loading");
 const container = document.getElementById("container");
 const deleteAllCardsBtn = document.getElementById("deleteAll");
 const restoreAllCardsBtn = document.getElementById("restoreAll");
 let currentData = [];
+
+function getLocalData(key) {
+  const data = localStorage.getItem(key);
+  return data ? JSON.parse(data) : null;
+}
 
 async function fetchUserData() {
   const loading = document.getElementById("loading");
@@ -16,22 +20,18 @@ async function fetchUserData() {
   loading.querySelector(".loader").style.display = "inline-block";
   loadingText.textContent = "Восстановление данных...";
   try {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
     const response = await fetch("users.json");
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
     const userData = await response.json();
-    if (currentData.length === userData.length && currentData.length !== 0) {
-      setTimeout(() => {
-        alert("Все данные уже отображены");
-      }, 10);
-
+    if (currentData.length === userData.length && currentData.length !== 0) {    
+      alert("Все данные уже отображены");
       return;
     }
     currentData = userData;
-    renderCards(userData);
+    await renderCards(userData);
     localStorage.setItem("userData", JSON.stringify(userData));
     console.log("Данные пользователей:", userData);
   } catch (error) {
@@ -60,25 +60,15 @@ restoreAllCardsBtn.addEventListener("click", () => {
   fetchUserData();
 });
 
-container.addEventListener("click", (event) => {
-  if (event.target.classList.contains("js-delete-btn")) {
-    const cardId = event.target.dataset.id;
-    const cardElement = event.target.closest(".card");
-    cardElement.classList.add("removing");
-
-    setTimeout(() => {
-      currentData = currentData.filter((card) => card.id != cardId);
-      localStorage.setItem("userData", JSON.stringify(currentData));
-      renderCards(currentData);
-    }, 500);
-  }
-});
-
-const renderCards = (cards) => {
+async function renderCards(cards) {
   loading.querySelector("#loading-text").textContent = "";
   container.innerHTML = "";
+
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+
   cards.forEach((element) => {
     const cardClone = cardTemplate.content.cloneNode(true);
+    const cardElement = cardClone.querySelector(".card");
     cardClone.querySelector(".js-id").textContent = element.id;
     cardClone.querySelector(".js-name").textContent = element.name;
     cardClone.querySelector(".js-surname").textContent = element.surname;
@@ -89,12 +79,24 @@ const renderCards = (cards) => {
     cardClone.querySelector(".js-street").textContent = element.street;
     cardClone.querySelector(".js-isAdmin").textContent = element.isAdmin;
     cardClone.querySelector(".js-delete-btn").dataset.id = element.id;
+
+    const deleteBtn = cardClone.querySelector(".js-delete-btn");
+
+    deleteBtn.addEventListener("click", () => {
+      cardElement.classList.add("removing");
+
+      setTimeout(() => {
+        currentData = currentData.filter((card) => card.id !== element.id);
+        localStorage.setItem("userData", JSON.stringify(currentData));
+        cardElement.remove();
+      }, 500);
+    });
     container.appendChild(cardClone);
   });
 };
 
 function initApp() {
-  const saveData = getLocalData()
+  const saveData = getLocalData("userData");
   if (saveData !== null) {
     currentData = saveData;
     renderCards(saveData);
