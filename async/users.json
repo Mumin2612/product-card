@@ -1,0 +1,57 @@
+[
+  {
+      "id" : 1,
+      "name" : "Mumin",
+      "surname" : "Suleimanov",
+      "age" : 20,
+      "gmail" : "muminsuleimanov5@gmail.com",
+      "country" : "Poland",
+      "city" : "Warsaw",
+      "street" : "Mazowiecka",
+      "isAdmin" : true    
+  },
+  {
+      "id" : 2,
+      "name" : "Alex",
+      "surname" : "Smith",
+      "age" : 23,
+      "gmail" : "alexsmith@gmail.com",
+      "country" : "Germany",
+      "city" : "Berlin",
+      "street" : "Alexanderplatz",
+      "isAdmin" : false
+  },
+  {
+      "id" : 3,
+      "name" : "Smith",
+      "surname" : "Johnson",
+      "age" : 27,
+      "gmail" : "smithjohnson@gmail.com",
+      "country" : "Chech Republic",
+      "city" : "Prague",
+      "street" : "Wenceslas Square",
+      "isAdmin" : false
+  },
+  {
+      "id" : 4,
+      "name" : "Ivan",
+      "surname" : "Ivanov",
+      "age" : 21,
+      "gmail" : "ivanivanov@gmail.com",
+      "country" : "Russia",
+      "city" : "Moscow",
+      "street" : "Tverskaya Street",
+      "isAdmin" : false
+  },
+  {
+      "id" : 5,
+      "name" : "Drek",
+      "surname" : "Walker",
+      "age" : 20,
+      "gmail" : "drekwalker@gmail.com",
+      "country" : "USA",
+      "city" : "New York",
+      "street" : "Broadway",
+      "isAdmin" : false
+  }
+]

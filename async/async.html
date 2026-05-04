@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="async.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <template id="card-template">
+
+      <div class="card">
+        <p>Номер:<span class="js-id"></span></p>
+        <p>Имя:<span class="js-name"></span></p>
+        <p>Фамилия:<span class="js-surname"></span></p>
+        <p>Возраст:<span class="js-age"></span></p>
+        <p>gmail:<span class="js-gmail"></span></p>
+        <p>Страна:<span class="js-country"></span></p>
+        <p>Город:<span class="js-city"></span></p>
+        <p>Улица:<span class="js-street"></span></p>
+        <p>Админ:<span class="js-isAdmin"></span></p>
+
+        <button class="js-delete-btn">Удалить карточку</button>
+      </div>
+    </template>
+
+    <div class="controls">
+      <button id="deleteAll">Удалить все</button>
+      <button id="restoreAll">восстановить все</button>
+    </div>
+
+    
+    <div id="loading" class="hidden">
+      <span class="loader"></span>
+      <p id="loading-text">Восстановление данных...</p>
+    </div>
+
+    <div id="container" class="container"></div>
+
+    <script src="async.js"></script>
+  </body>
+</html>
